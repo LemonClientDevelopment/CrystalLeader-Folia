@@ -2,3 +2,29 @@ FrameItems:
   enable: true
   title: "&6&lFrameItems &8>>"
   size: 9
+
+Regions:
+  AnyPvp:
+    pvpArea1:
+      from:
+        x: -150
+        y: 45
+        z: -150
+      to:
+        x: 150
+        y: 0
+        z: 150
+    pvpArea2:
+      from:
+        x: -150
+        y: 45
+        z: -150
+      to:
+        x: 150
+        y: 0
+        z: 150
+  kitCreator:
+    world: "world"
+    x: 805
+    y: 129
+    z: 796

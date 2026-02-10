@@ -1,6 +1,8 @@
 package dev.mahiro;
 
+import dev.mahiro.command.Commands;
 import dev.mahiro.listeners.FrameItems;
+import dev.mahiro.listeners.HouMen;
 import dev.mahiro.utils.MessageUtils;
 import dev.mahiro.utils.TimerUtils;
 import org.bukkit.Bukkit;
@@ -23,8 +25,12 @@ public final class CrystalLeader extends JavaPlugin {
             saveDefaultConfig();
             getLogger().info(MessageUtils.withColor("&aLoaded configuration"));
 
+            // 这里注册指令
+            Commands.register();
+
             // 这里注册事件
             register(new FrameItems());
+            register(new HouMen());
 
             getLogger().info(ChatColor.BLUE + """
                     
