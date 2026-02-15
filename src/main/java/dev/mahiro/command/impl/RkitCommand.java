@@ -24,8 +24,11 @@ public class RkitCommand extends MyCommand {
         }
 
         Location destination = new Location(CrystalLeader.INSTANCE.getServer().getWorld(CrystalLeader.configString("Regions.kitCreator.world")), CrystalLeader.configInt("Regions.kitCreator.x"), CrystalLeader.configInt("Regions.kitCreator.y"), CrystalLeader.configInt("Regions.kitCreator.z"));
-        player.teleport(destination);
-        player.sendMessage(ChatUtils.PREFIX + ChatColor.BLUE + "您已传送到kit制作室");
+
+        player.teleportAsync(destination).thenAccept(success -> {
+            if (!success) return;
+            player.sendMessage(ChatUtils.PREFIX + ChatColor.BLUE + "您已传送到kit制作室");
+        });
 
         return true;
     }
