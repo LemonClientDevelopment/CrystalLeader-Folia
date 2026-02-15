@@ -1,4 +1,4 @@
-package dev.mahiro.listeners;
+package dev.mahiro.listener.impl;
 
 import dev.mahiro.CrystalLeader;
 import dev.mahiro.utils.MessageUtils;

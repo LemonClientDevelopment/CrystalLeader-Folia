@@ -28,3 +28,8 @@ Regions:
     x: 805
     y: 129
     z: 796
+
+RespawnRegular:
+  enable: true
+  clearInventory: true
+  world: 'world_nether'

@@ -1,13 +1,11 @@
 package dev.mahiro;
 
 import dev.mahiro.command.Commands;
-import dev.mahiro.listeners.FrameItems;
-import dev.mahiro.listeners.HouMen;
+import dev.mahiro.listener.Listeners;
 import dev.mahiro.utils.MessageUtils;
 import dev.mahiro.utils.TimerUtils;
-import org.bukkit.Bukkit;
+import dev.mahiro.utils.Utils;
 import org.bukkit.ChatColor;
-import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
@@ -28,9 +26,11 @@ public final class CrystalLeader extends JavaPlugin {
             // 这里注册指令
             Commands.register();
 
+            // Utils的初始化
+            Utils.onEnable(this);
+
             // 这里注册事件
-            register(new FrameItems());
-            register(new HouMen());
+            Listeners.register();
 
             getLogger().info(ChatColor.BLUE + """
                     
@@ -47,11 +47,8 @@ public final class CrystalLeader extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        Utils.onDisable();
         getLogger().info(MessageUtils.withColor(ChatColor.RED + "Disabled CrystalLeader, thanks for using OwO"));
-    }
-
-    private void register(Listener listener) {
-        Bukkit.getPluginManager().registerEvents(listener, INSTANCE);
     }
 
     private Long calcTime(Runnable runnable) {
